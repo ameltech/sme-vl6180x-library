@@ -1,1 +1,0 @@
-Library for Smart Everything vl6180x proximity sensor

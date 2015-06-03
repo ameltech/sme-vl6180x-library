@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map Servo
+#######################################
+
+#######################################
+# Library (KEYWORD3)
+#######################################
+
+smeAmbient	     KEYWORD3
+smeProximity	 KEYWORD3
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#######################################
+# Methods and Functions  (KEYWORD2)
+#######################################
+begin	        KEYWORD2
+lightAndRangePollingRead	KEYWORD2
+ligthPollingRead	        KEYWORD2
+rangePollingRead	        KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
