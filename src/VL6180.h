@@ -24,11 +24,11 @@ typedef enum {  // define lower nibble of ALS gain register
 
 
 class VL6180 {
-	
+
 private:
-		unsigned int _address;
-		const char*  _name;
-		
+    unsigned int _address;
+    const char*  _name;
+
 public:
     VL6180(const char* name);
     void begin(void);
@@ -105,7 +105,7 @@ public:
         complete before another measurement is started. This is because any current operation will
         be aborted if another is started.
      */
-    byte rangePollingRead(void);
+    char rangePollingRead(void);
 };
 
 extern VL6180_A smeAmbient;

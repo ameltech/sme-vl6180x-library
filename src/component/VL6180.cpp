@@ -13,47 +13,47 @@
 bool VL6180::initialized = false;
 
 static void readRegister_16Bit(byte slaveAddress, uint16_t regToRead, byte *buffer) {
-	Wire.beginTransmission(slaveAddress);
-	Wire.write((uint8_t)((regToRead >> 8) & 0xFF)); // Put MSB of 16-bit slave register address in Tx buffer
-	Wire.write((uint8_t)(regToRead & 0xFF));        // Put LSB of 16-bit slave register address in Tx buffer
-	Wire.endTransmission(false);                    //endTransmission but keep the connection active
+    Wire.beginTransmission(slaveAddress);
+    Wire.write((uint8_t)((regToRead >> 8) & 0xFF)); // Put MSB of 16-bit slave register address in Tx buffer
+    Wire.write((uint8_t)(regToRead & 0xFF));        // Put LSB of 16-bit slave register address in Tx buffer
+    Wire.endTransmission(false);                    //endTransmission but keep the connection active
 
-	Wire.requestFrom(slaveAddress, 1);              //Ask for bytes, once done, bus is released by default
-	while(Wire.available() < 1);                    //Hang out until we get the # of bytes we expect
+    Wire.requestFrom(slaveAddress, 1);              //Ask for bytes, once done, bus is released by default
+    while(Wire.available() < 1);                    //Hang out until we get the # of bytes we expect
 
-	for(int x = 0 ; x < 1 ; x++) {
-		buffer[x] = Wire.read();
-	}
-	Wire.endTransmission(true);
+    for(int x = 0 ; x < 1 ; x++) {
+        buffer[x] = Wire.read();
+    }
+    Wire.endTransmission(true);
 }
 
 static void writeRegister_16Bit(uint8_t slaveAddress, uint16_t regToWrite, uint8_t dataToWrite){
-	Wire.beginTransmission(slaveAddress);
-	Wire.write((regToWrite >> 8) & 0xFF);           // Put MSB of 16-bit slave register address in Tx buffer
-	Wire.write(regToWrite & 0xFF);                  // Put LSB of 16-bit slave register address in Tx buffer
-	Wire.write(dataToWrite);
-	Wire.endTransmission();
+    Wire.beginTransmission(slaveAddress);
+    Wire.write((regToWrite >> 8) & 0xFF);           // Put MSB of 16-bit slave register address in Tx buffer
+    Wire.write(regToWrite & 0xFF);                  // Put LSB of 16-bit slave register address in Tx buffer
+    Wire.write(dataToWrite);
+    Wire.endTransmission();
 }
 
 static bool readBufferRegister_16Bit(uint8_t slaveAddress, uint16_t regToRead, uint8_t *buffer, uint8_t bufferLen) {
-	bool ret = true;
+    bool ret = true;
 
-	Wire.beginTransmission(slaveAddress);
-	Wire.write((uint8_t)((regToRead >> 8) & 0xFF)); // Put MSB of 16-bit slave register address in Tx buffer
-	Wire.write((uint8_t)(regToRead & 0xFF));        // Put LSB of 16-bit slave register address in Tx buffer
-	Wire.endTransmission(false);                    //endTransmission but keep the connection active
+    Wire.beginTransmission(slaveAddress);
+    Wire.write((uint8_t)((regToRead >> 8) & 0xFF)); // Put MSB of 16-bit slave register address in Tx buffer
+    Wire.write((uint8_t)(regToRead & 0xFF));        // Put LSB of 16-bit slave register address in Tx buffer
+    Wire.endTransmission(false);                    //endTransmission but keep the connection active
 
-	Wire.requestFrom(slaveAddress, bufferLen);      //Ask for bytes, once done, bus is released by default
+    Wire.requestFrom(slaveAddress, bufferLen);      //Ask for bytes, once done, bus is released by default
 
-	uint8_t x = 0;
-	while(Wire.available()) {                       //Hang out until we get the # of bytes we expect
-		buffer[x++] = Wire.read();
-	}
+    uint8_t x = 0;
+    while(Wire.available()) {                       //Hang out until we get the # of bytes we expect
+        buffer[x++] = Wire.read();
+    }
 
-	if (Wire.endTransmission(true)!= 0)
-	ret = false;
+    if (Wire.endTransmission(true)!= 0)
+        ret = false;
 
-	return ret;
+    return ret;
 }
 
 
@@ -66,7 +66,7 @@ VL6180::VL6180(const char* name): _address(VL6180X_ADDRESS), _name(name) {
 void VL6180::begin(void) {
     Wire.begin(); // to be remove after SEVE Merge
     byte data;
-	
+
     readRegister_16Bit(_address, VL6180X_IDENTIFICATION_MODEL_ID, &data);
 
     // if the WHOAMI Register return the corect information do the final initializatioin
@@ -250,8 +250,29 @@ float VL6180_A::ligthPollingRead(void) {
     return (als * 10000);
 }
 
-byte VL6180_P::rangePollingRead(void) {
-    return 0;
+char VL6180_P::rangePollingRead(void) {
+    uint8_t status;
+    uint16_t alsRaw;
+    uint8_t rawData[2] = {0, 0};
+    byte    distance;
+
+    writeRegister_16Bit(VL6180X_ADDRESS, VL6180X_SYSRANGE_START, START_SINGLE_MODE);
+
+    readRegister_16Bit(VL6180X_ADDRESS, VL6180X_RESULT_INTERRUPT_STATUS_GPIO, &status);
+    status = status & RANGE_SINGLE_MODE_MASK;
+    while (status != RANGE_SINGLE_MODE_READY) {
+        readRegister_16Bit(VL6180X_ADDRESS, VL6180X_RESULT_INTERRUPT_STATUS_GPIO, &status);
+        status = status & RANGE_SINGLE_MODE_MASK;
+    }
+
+    readRegister_16Bit(VL6180X_ADDRESS, VL6180X_RESULT_RANGE_VAL, rawData);
+    distance=rawData[0];
+    writeRegister_16Bit(VL6180X_ADDRESS, VL6180X_SYSTEM_INTERRUPT_CLEAR, CLEAR_ALS_INT);
+    return distance;
+
+
+    return -1; //should never arrive here
+
 }
 
 VL6180_A smeAmbient;
