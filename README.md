@@ -22,7 +22,7 @@ Multiple threshold and interrupt schemes are supported to minimize host operatio
 Host control and result reading is performed using an I2C interfac, no extra pin are required.
 
 It was principally designed to work with the SmartEverything board, but could
-be easly adapt and use on every Arduino and Arduino Certified boards.
+be easily adapt and use on every Arduino and Arduino Certified boards.
 
 Written by Mik <smkk@amel-tech.com>.  
 

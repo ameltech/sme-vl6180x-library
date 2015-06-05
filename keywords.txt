@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map Servo
+# Syntax Coloring Map VL6180
 #######################################
 
 #######################################
@@ -14,7 +14,7 @@ smeProximity	 KEYWORD3
 #######################################
 
 #######################################
-# Methods and Functions  (KEYWORD2)
+# Methods and Functions (KEYWORD2)
 #######################################
 begin	        KEYWORD2
 lightAndRangePollingRead	KEYWORD2
