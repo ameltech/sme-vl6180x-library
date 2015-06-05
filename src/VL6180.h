@@ -1,6 +1,9 @@
 /*
  * VL6180.h
  *
+ * Library is based on the useful project done by Kris Winer
+ *  https://github.com/kriswiner/VL6180X
+ *  
  * Created: 4/23/2015 9:43:14 PM
  *  Author: smkk
  */ 
