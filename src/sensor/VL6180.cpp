@@ -64,7 +64,6 @@ VL6180::VL6180(const char* name): _address(VL6180X_ADDRESS), _name(name) {
 }
 
 void VL6180::begin(void) {
-    Wire.begin(); // to be remove after SEVE Merge
     byte data;
 
     readRegister_16Bit(_address, VL6180X_IDENTIFICATION_MODEL_ID, &data);
@@ -158,7 +157,7 @@ bool VL6180::internal_init(void) {
             writeRegister_16Bit(VL6180X_ADDRESS, 0x01a7, 0x1f);
             writeRegister_16Bit(VL6180X_ADDRESS, 0x0030, 0x00);
 
-            // onfigure range measurement for low power
+            // configure range measurement for low power
             // Specify range measurement interval in units of 10 ms from 0 (= 10 ms) - 254 (= 2.55 s)
 
             writeRegister_16Bit(VL6180X_ADDRESS, VL6180X_SYSRANGE_INTERMEASUREMENT_PERIOD, 0x09); // 100 ms interval in steps of 10 ms
