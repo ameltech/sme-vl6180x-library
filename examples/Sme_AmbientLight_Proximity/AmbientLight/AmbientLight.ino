@@ -23,6 +23,8 @@
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+	Wire.begin();
+	
     // initialize digital pin 13 as an output.
     pinMode(PIN_LED_BLUE, OUTPUT);
 
@@ -63,11 +65,11 @@ void printDouble( double val, unsigned int precision){
     else
         frac = (int(val)- val ) * precision;
     int frac1 = frac;
-	
+
     while( frac1 /= 10 )
         precision /= 10;
     precision /= 10;
-	
+
     while(  precision /= 10)
         SerialUSB.print("0");
 

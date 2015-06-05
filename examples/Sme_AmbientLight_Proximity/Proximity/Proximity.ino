@@ -23,6 +23,8 @@
 
 // the setup function runs once when you press reset or power the board
 void setup() {
+	Wire.begin();
+	
     // initialize digital pin 13 as an output.
     pinMode(PIN_LED_BLUE, OUTPUT);
 
@@ -40,8 +42,13 @@ void loop() {
 
     char ligth = smeProximity.rangePollingRead();    
 
-    SerialUSB.println(ligth, DEC);
-	
+    if (ligth == 255) {
+      SerialUSB.println("Infinity");
+    } else {
+        SerialUSB.print(ligth, DEC);
+        SerialUSB.println(" mm");
+    }
+
     digitalWrite(PIN_LED_BLUE, HIGH);   // turn the LED off by making the voltage LOW
     delay(1000);              // wait for a second
 
