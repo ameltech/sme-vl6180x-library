@@ -17,12 +17,14 @@ Ranging and ALS measurements can be automatically performed at user defined inte
 Multiple threshold and interrupt schemes are supported to minimize host operations.
 
 
-[*ST VL6180X Home Page*](http://www.st.com/web/catalog/mmc/FM132/SC626/PF260441?icmp=pf260441_pron_p3609p_sep2014&sc=proximitysensor)
+[* ST VL6180X Home Page *](http://www.st.com/web/catalog/mmc/FM132/SC626/PF260441?icmp=pf260441_pron_p3609p_sep2014&sc=proximitysensor)
 
 Host control and result reading is performed using an I2C interfac, no extra pin are required.
 
 It was principally designed to work with the SmartEverything board, but could
 be easily adapt and use on every Arduino and Arduino Certified boards.
+
+[*Library is based on the useful project done by Kris Winer*](https://github.com/kriswiner/VL6180)
 
 Written by Mik <smkk@amel-tech.com>.  
 
