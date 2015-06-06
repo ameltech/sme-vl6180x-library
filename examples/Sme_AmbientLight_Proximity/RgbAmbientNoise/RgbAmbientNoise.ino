@@ -3,7 +3,7 @@
 
     Show how many Lux use any part of the RGB Led.
 
-    Consider the light ambiental noise
+    Consider the light ambient noise
 
     created 06 May 2015
     by Mik (smkk@amel-tech.com)
