@@ -3,7 +3,7 @@ SmartEverything ST VL6180X  Proximity & Ambient Light Library
 
 This is a library for the ST VL6180X component.
 
-The VL6180X is the latest product based on ST’s patented FlightSenseTMtechnology. 
+The VL6180X is the latest product based on STâ€™s patented FlightSenseTMtechnology. 
 This is a ground-breaking technology allowing absolute distance to be measured independent of target reflectance. 
 Instead of estimating the distance by measuring the amount of light reflected back from the object 
 (which is significantly influenced by color and surface), the VL6180X precisely measures the time the light takes 
@@ -24,7 +24,7 @@ Host control and result reading is performed using an I2C interfac, no extra pin
 It was principally designed to work with the SmartEverything board, but could
 be easily adapt and use on every Arduino and Arduino Certified boards.
 
-[*Library is based on the useful project done by Kris Winer*](https://github.com/kriswiner/VL6180)
+[*Library is based on the useful project done by Kris Winer*](https://github.com/kriswiner/VL6180X)
 
 Written by Mik <smkk@amel-tech.com>.  
 
@@ -50,4 +50,3 @@ Please use, reuse, and modify these files as you see fit. Please maintain
 attribution to Amel Tecnologie and release anything derivative under the same license.
 
 Distributed as-is; no warranty is given.
-
