@@ -34,7 +34,7 @@ private:
 
 public:
     VL6180(const char* name);
-    void begin(void);
+    bool begin(void);
 
 protected:
     float realalsGain;

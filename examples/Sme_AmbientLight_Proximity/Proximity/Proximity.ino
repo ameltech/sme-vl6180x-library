@@ -28,7 +28,11 @@ void setup() {
     // initialize digital pin 13 as an output.
     pinMode(PIN_LED_BLUE, OUTPUT);
 
-    smeProximity.begin();
+    if (!smeProximity.begin()) {
+        while(1){
+            ; // endless loop due to error on VL6180 initialization
+        }
+    }
 
     SerialUSB.begin(115200);
 

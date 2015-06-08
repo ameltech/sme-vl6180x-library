@@ -37,7 +37,11 @@ void setup() {
     digitalWrite(PIN_LED_BLUE, HIGH);
     digitalWrite(PIN_LED_RED, HIGH);
 
-    smeAmbient.begin();
+    if (!smeAmbient.begin()) {
+        while(1){
+            ; // endless loop due to error on VL6180 initialization
+        }
+    }
 
     SerialUSB.begin(115200);
 

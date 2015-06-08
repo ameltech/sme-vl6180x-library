@@ -63,19 +63,21 @@ VL6180::VL6180(const char* name): _address(VL6180X_ADDRESS), _name(name) {
     }
 }
 
-void VL6180::begin(void) {
+bool VL6180::begin(void) {
     byte data;
 
     readRegister_16Bit(_address, VL6180X_IDENTIFICATION_MODEL_ID, &data);
 
-    // if the WHOAMI Register return the corect information do the final initializatioin
-    // this shall be happen only the first time
+    // if the WHOAMI Register return the correct information do the final initialization
     if (data == VL6180X_IDENTIFICATION_MODEL_ID_RETURN){
+		// this shall be happen only the first time
         if (VL6180::initialized == false) {
             internal_init();
             VL6180::initialized=true;
         }
     }
+	
+	return VL6180::initialized;
 }
 
 
