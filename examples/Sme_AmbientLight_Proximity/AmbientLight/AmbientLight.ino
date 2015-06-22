@@ -1,5 +1,5 @@
 /*
-    SmeAmbient Library -Proximity
+    SmeAmbient Library -AmbientLight.ino
 
     Demonstrate how to detect the quantity of lux in a polling mode
 
@@ -25,9 +25,6 @@
 void setup() {
 	Wire.begin();
 	
-    // initialize digital pin 13 as an output.
-    pinMode(PIN_LED_BLUE, OUTPUT);
-
     if (!smeAmbient.begin()) {
 		while(1){
 			; // endless loop due to error on VL6180 initialization
@@ -41,14 +38,14 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
 
-    digitalWrite(PIN_LED_BLUE, LOW);   // turn the LED ON by making the voltage LOW
+    ledBlueLight(LOW);   // turn the LED ON by making the voltage LOW
     delay(1000);             // wait for a second
 
     float ligth = smeAmbient.ligthPollingRead();
 
     printDouble(ligth, 100);
 
-    digitalWrite(PIN_LED_BLUE, HIGH);   // turn the LED off by making the voltage HIGH
+    ledBlueLight(HIGH);   // turn the LED off by making the voltage HIGH
     delay(1000);              // wait for a second
 
 }

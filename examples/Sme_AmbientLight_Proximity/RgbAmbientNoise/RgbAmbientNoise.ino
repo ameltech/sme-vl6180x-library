@@ -27,16 +27,6 @@ void setup() {
 
     Wire.begin();
 
-    // initialize all RGB pins as an output.
-    pinMode(PIN_LED_BLUE, OUTPUT);
-    pinMode(PIN_LED_RED, OUTPUT);
-    pinMode(PIN_LED_GREEN, OUTPUT);
-
-    // switch off all the leds
-    digitalWrite(PIN_LED_GREEN, HIGH);
-    digitalWrite(PIN_LED_BLUE, HIGH);
-    digitalWrite(PIN_LED_RED, HIGH);
-
     if (!smeAmbient.begin()) {
         while(1){
             ; // endless loop due to error on VL6180 initialization
@@ -61,62 +51,62 @@ void loop() {
 
 
 
-    digitalWrite(PIN_LED_BLUE, LOW);   // turn the LED ON by making the voltage LOW
-    delay(1000);             // wait for a second
+    ledBlueLight(HIGH);   // turn the LED ON 
+    delay(1000);          // wait for a second
 
     float ligth = smeAmbient.ligthPollingRead();
 
     SerialUSB.print("The BLUE component is=");
     printDouble(ambientLight-ligth, 100);
 
-    digitalWrite(PIN_LED_BLUE, HIGH);   // turn the LED off by making the voltage HIGH
-    delay(1000);              // wait for a second
+    ledBlueLight(LOW);   // turn the LED off 
+    delay(1000);         // wait for a second
 
 
 
 
-    digitalWrite(PIN_LED_RED, LOW);   // turn the LED ON by making the voltage LOW
-    delay(1000);             // wait for a second
+    ledRedLight(HIGH);   // turn the LED ON 
+    delay(1000);         // wait for a second
 
     ligth = smeAmbient.ligthPollingRead();
 
     SerialUSB.print("The RED component is=");
     printDouble(ambientLight-ligth, 100);
 
-    digitalWrite(PIN_LED_RED, HIGH);   // turn the LED off by making the voltage HIGH
-    delay(1000);              // wait for a second
+    ledRedLight(LOW);   // turn the LED off 
+    delay(1000);        // wait for a second
 
 
 
 
-    digitalWrite(PIN_LED_GREEN, LOW);   // turn the LED ON by making the voltage LOW
-    delay(1000);             // wait for a second
+    ledGreenLight(HIGH);   // turn the LED ON 
+    delay(1000);           // wait for a second
 
     ligth = smeAmbient.ligthPollingRead();
 
     SerialUSB.print("The GREEN component is=");
     printDouble(ambientLight-ligth, 100);
 
-    digitalWrite(PIN_LED_GREEN, HIGH);   // turn the LED off by making the voltage HIGH
-    delay(1000);              // wait for a second
+    ledGreenLight(LOW);   // turn the LED off 
+    delay(1000);          // wait for a second
 
 
 
 
-    digitalWrite(PIN_LED_BLUE, LOW);   // turn the LED ON by making the voltage LOW
-    digitalWrite(PIN_LED_GREEN, LOW);   // turn the LED ON by making the voltage LOW
-    digitalWrite(PIN_LED_RED, LOW);   // turn the LED ON by making the voltage LOW
-    delay(1000);             // wait for a second
+    ledBlueLight(HIGH);  // turn the LED ON 
+    ledGreenLight(HIGH); // turn the LED ON 
+    ledRedLight(HIGH);   // turn the LED ON 
+    delay(1000);         // wait for a second
 
     ligth = smeAmbient.ligthPollingRead();
 
     SerialUSB.print("The WHITE component is=");
     printDouble(ambientLight-ligth, 100);
 
-    digitalWrite(PIN_LED_BLUE, HIGH);   // turn the LED off by making the voltage HIGH
-    digitalWrite(PIN_LED_RED, HIGH);   // turn the LED off by making the voltage HIGH
-    digitalWrite(PIN_LED_GREEN, HIGH);   // turn the LED off by making the voltage HIGH
-    delay(1000);              // wait for a second
+    ledBlueLight(LOW);  // turn the LED off
+    ledRedLight(LOW);   // turn the LED off 
+    ledGreenLight(LOW); // turn the LED off
+    delay(1000);        // wait for a second
 
 }
 

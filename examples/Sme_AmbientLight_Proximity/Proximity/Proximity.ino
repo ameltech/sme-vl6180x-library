@@ -1,5 +1,5 @@
 /*
-    SmeProximity Library -Proximity
+    SmeProximity Library - Proximity.ino
 
     Demonstrate how to detect the proximity of an object in polling mode.
 
@@ -25,9 +25,6 @@
 void setup() {
 	Wire.begin();
 	
-    // initialize digital pin 13 as an output.
-    pinMode(PIN_LED_BLUE, OUTPUT);
-
     if (!smeProximity.begin()) {
         while(1){
             ; // endless loop due to error on VL6180 initialization
@@ -41,7 +38,7 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
 
-    digitalWrite(PIN_LED_BLUE, LOW);   // turn the LED off by making the voltage LOW
+    ledBlueLight(LOW);   // turn the LED off by making the voltage LOW
     delay(1000);             // wait for a second
 
     char ligth = smeProximity.rangePollingRead();    
@@ -53,7 +50,7 @@ void loop() {
         SerialUSB.println(" mm");
     }
 
-    digitalWrite(PIN_LED_BLUE, HIGH);   // turn the LED off by making the voltage LOW
+    ledBlueLight(HIGH);   // turn the LED off by making the voltage LOW
     delay(1000);              // wait for a second
 
 }
