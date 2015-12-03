@@ -41,9 +41,9 @@ void loop() {
     ledBlueLight(LOW);   // turn the LED ON by making the voltage LOW
     delay(1000);             // wait for a second
 
-    float ligth = smeAmbient.ligthPollingRead();
+    float light = smeAmbient.lightPollingRead();
 
-    printDouble(ligth, 100);
+    printDouble(light, 100);
 
     ledBlueLight(HIGH);   // turn the LED off by making the voltage HIGH
     delay(1000);              // wait for a second
