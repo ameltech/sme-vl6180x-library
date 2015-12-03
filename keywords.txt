@@ -18,7 +18,7 @@ smeProximity	 KEYWORD3
 #######################################
 begin	        KEYWORD2
 lightAndRangePollingRead	KEYWORD2
-ligthPollingRead	        KEYWORD2
+lightPollingRead	        KEYWORD2
 rangePollingRead	        KEYWORD2
 
 #######################################
