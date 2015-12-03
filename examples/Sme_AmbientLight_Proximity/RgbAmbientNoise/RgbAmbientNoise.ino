@@ -36,7 +36,7 @@ void setup() {
     SerialUSB.begin(115200);
 
     if (!SerialUSB) {
-        ambientLight = smeAmbient.ligthPollingRead();  // store the noise of the ambient light
+        ambientLight = smeAmbient.lightPollingRead();  // store the noise of the ambient light
         delay(500); //just wait a while
     }
 
@@ -54,10 +54,10 @@ void loop() {
     ledBlueLight(HIGH);   // turn the LED ON 
     delay(1000);          // wait for a second
 
-    float ligth = smeAmbient.ligthPollingRead();
+    float light = smeAmbient.lightPollingRead();
 
     SerialUSB.print("The BLUE component is=");
-    printDouble(ambientLight-ligth, 100);
+    printDouble(ambientLight-light, 100);
 
     ledBlueLight(LOW);   // turn the LED off 
     delay(1000);         // wait for a second
@@ -68,10 +68,10 @@ void loop() {
     ledRedLight(HIGH);   // turn the LED ON 
     delay(1000);         // wait for a second
 
-    ligth = smeAmbient.ligthPollingRead();
+    light = smeAmbient.lightPollingRead();
 
     SerialUSB.print("The RED component is=");
-    printDouble(ambientLight-ligth, 100);
+    printDouble(ambientLight-light, 100);
 
     ledRedLight(LOW);   // turn the LED off 
     delay(1000);        // wait for a second
@@ -82,10 +82,10 @@ void loop() {
     ledGreenLight(HIGH);   // turn the LED ON 
     delay(1000);           // wait for a second
 
-    ligth = smeAmbient.ligthPollingRead();
+    light = smeAmbient.lightPollingRead();
 
     SerialUSB.print("The GREEN component is=");
-    printDouble(ambientLight-ligth, 100);
+    printDouble(ambientLight-light, 100);
 
     ledGreenLight(LOW);   // turn the LED off 
     delay(1000);          // wait for a second
@@ -98,10 +98,10 @@ void loop() {
     ledRedLight(HIGH);   // turn the LED ON 
     delay(1000);         // wait for a second
 
-    ligth = smeAmbient.ligthPollingRead();
+    light = smeAmbient.lightPollingRead();
 
     SerialUSB.print("The WHITE component is=");
-    printDouble(ambientLight-ligth, 100);
+    printDouble(ambientLight-light, 100);
 
     ledBlueLight(LOW);  // turn the LED off
     ledRedLight(LOW);   // turn the LED off 
