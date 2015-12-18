@@ -26,7 +26,7 @@ be easily adapt and use on every Arduino and Arduino Certified boards.
 
 [*Library is based on the useful project done by Kris Winer*](https://github.com/kriswiner/VL6180X)
 
-Written by Mik <smkk@amel-tech.com>.  
+Written by Mik <smkk@axelelettronica.it>.  
 
 ## Repository Contents 
 -------------------
