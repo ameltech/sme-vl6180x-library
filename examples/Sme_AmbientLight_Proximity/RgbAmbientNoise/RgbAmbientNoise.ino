@@ -6,7 +6,7 @@
     Consider the light ambient noise
 
     created 06 May 2015
-    by Mik (smkk@amel-tech.com)
+    by Mik (smkk@axelelettronica.it)
 
     This example is in the public domain
     https://github.com/ameltech

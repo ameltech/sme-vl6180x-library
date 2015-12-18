@@ -1,5 +1,5 @@
-SmartEverything ST VL6180X  Proximity & Ambient Light Library
-=============================================================
+# SmartEverything ST VL6180X  Proximity & Ambient Light Library
+---
 
 This is a library for the ST VL6180X component.
 
@@ -28,20 +28,28 @@ be easily adapt and use on every Arduino and Arduino Certified boards.
 
 Written by Mik <smkk@amel-tech.com>.  
 
-Repository Contents 
+## Repository Contents 
 -------------------
 
 * **/examples** - Example sketches for the library (.ino). Run these from the Arduino IDE. 
 * **/src** - Source files for the library (.cpp, .h).
 * **library.properties** - General library properties for the Arduino package manager.
+* 
+## Releases
+---
+#### v1.0.0 First Release
 
-Documentation
+#### v1.0.1 Second Release 18-Dec-2015
+* update reference email
+
+
+## Documentation
 --------------
 
 * **[Installing an Arduino Library Guide](http://www.arduino.cc/en/Guide/Libraries#toc3)** - How to install a SmartEverything library on the Arduino IDE using the Library Manager
 
 
-License Information
+## License Information
 -------------------
 
 Copyright (c) Amel Technology. All right reserved.
@@ -59,4 +67,5 @@ Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+
 

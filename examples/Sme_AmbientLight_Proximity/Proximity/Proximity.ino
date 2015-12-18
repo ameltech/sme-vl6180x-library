@@ -6,7 +6,7 @@
     And the ends the green led continuously blink. 
 
     created 27 Apr 2015
-    by Mik (smkk@amel-tech.com)
+    by Mik (smkk@axelelettronica.it)
 
     This example is in the public domain
     https://github.com/ameltech
