@@ -41,12 +41,12 @@ void loop() {
     ledBlueLight(LOW);   // turn the LED off by making the voltage LOW
     delay(1000);             // wait for a second
 
-    char ligth = smeProximity.rangePollingRead();    
+    char light = smeProximity.rangePollingRead();    
 
-    if (ligth == 255) {
+    if (light == 255) {
       SerialUSB.println("Infinity");
     } else {
-        SerialUSB.print(ligth, DEC);
+        SerialUSB.print(light, DEC);
         SerialUSB.println(" mm");
     }
 
