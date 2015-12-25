@@ -227,7 +227,7 @@ bool VL6180::internal_init(void) {
 }
 
 
-float VL6180_A::ligthPollingRead(void) {
+float VL6180_A::lightPollingRead(void) {
     uint8_t status;
     uint8_t rawData[2] = {0, 0};
     float als;

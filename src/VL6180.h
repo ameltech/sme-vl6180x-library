@@ -91,7 +91,7 @@ public:
        complete before another measurement is started. This is because any current operation will
        be aborted if another is started.
      */
-    float ligthPollingRead(void);
+    float lightPollingRead(void);
 };
 
 
