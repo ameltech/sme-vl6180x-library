@@ -37,10 +37,14 @@ Written by Mik <smkk@axelelettronica.it>.
 * 
 ## Releases
 ---
-#### v1.0.0 First Release
+#### v1.1.1 Second Release 18-Dec-2015
+
+* Change example to be more Arduino boards compatible and not only for ASME boards family.
 
 #### v1.0.1 Second Release 18-Dec-2015
 * update reference email
+
+#### v1.0.0 First Release
 
 
 ## Documentation

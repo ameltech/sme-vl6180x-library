@@ -24,6 +24,7 @@
 // the setup function runs once when you press reset or power the board
 void setup() {
 	Wire.begin();
+  pinMode(PIN_LED_13, OUTPUT);
 	
     if (!smeAmbient.begin()) {
 		while(1){
@@ -38,14 +39,14 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
 
-    ledBlueLight(LOW);   // turn the LED ON by making the voltage LOW
+    digitalWrite(PIN_LED_13, LOW);   // turn the LED ON by making the voltage LOW
     delay(1000);             // wait for a second
 
     float ligth = smeAmbient.ligthPollingRead();
 
     printDouble(ligth, 100);
 
-    ledBlueLight(HIGH);   // turn the LED off by making the voltage HIGH
+    digitalWrite(PIN_LED_13, HIGH);   // turn the LED off by making the voltage HIGH
     delay(1000);              // wait for a second
 
 }
